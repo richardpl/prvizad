@@ -6,7 +6,19 @@ var colors = {
    1: '000',
 }
 
+var is_black = true;
+
 class App extends Component {
+    onClick() {
+        if (is_black !== true) {
+            document.body.style.backgroundColor = '#000';
+            is_black = true;
+        } else {
+            is_black = false;
+            document.body.style.backgroundColor = '#' + colors[Math.round(Math.random())];
+        }
+    };
+
     getColor(number) {
         let url='http://www.colr.org/json/color/random'
             fetch(url)
@@ -18,6 +30,7 @@ class App extends Component {
               });
     };
     componentDidMount() {
+        document.body.addEventListener('click', this.onClick, true);
         this.getColor(0);
         this.getColor(1);
     };
