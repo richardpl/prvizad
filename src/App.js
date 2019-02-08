@@ -7,6 +7,7 @@ var colors = {
 }
 
 var is_black = true;
+var input;
 
 class App extends Component {
     onClick() {
@@ -33,6 +34,10 @@ class App extends Component {
         document.body.addEventListener('click', this.onClick, true);
         this.getColor(0);
         this.getColor(1);
+        input = document.createElement("INPUT");
+        input.setAttribute("type", "text");
+        input.setAttribute("value", "Text");
+        document.body.appendChild(input);
     };
 
     render() {
