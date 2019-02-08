@@ -19,6 +19,9 @@ class App extends Component {
             document.body.style.backgroundColor = '#' + colors[Math.round(Math.random())];
         }
     };
+    onInputKeyup() {
+        document.getElementById("p1").innerHTML = input.value;
+    };
 
     getColor(number) {
         let url='http://www.colr.org/json/color/random'
@@ -37,6 +40,7 @@ class App extends Component {
         input = document.createElement("INPUT");
         input.setAttribute("type", "text");
         input.setAttribute("value", "Text");
+        input.addEventListener("keyup", this.onInputKeyup, true);
         document.body.appendChild(input);
     };
 
